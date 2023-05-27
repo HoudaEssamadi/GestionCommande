@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -33,12 +34,8 @@ public class Commande {
 	@JoinColumn(name="idUser")
 	private User user;
 	
+	@OneToMany(mappedBy="commande", fetch=FetchType.EAGER)
+	private List<LigneCommande> commandes=new ArrayList<LigneCommande>();
+
 	
-	@ManyToOne(fetch=FetchType.EAGER)
-	@JoinColumn(name="idProduit")
-	private Produit produit;
-
-
-	public java.util.Collection association2;
-
 }

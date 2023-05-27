@@ -69,46 +69,5 @@ public class User {
 	private List<Commande> commandes=new ArrayList<Commande>();
 
 
-	public java.util.Collection commande;
-
-	public java.util.Collection getCommande() {
-		if (commande == null)
-			commande = new java.util.HashSet();
-		return commande;
-	}
-
-	public java.util.Iterator getIteratorCommande() {
-		if (commande == null)
-			commande = new java.util.HashSet();
-		return commande.iterator();
-	}
-
-	public void setCommande(java.util.Collection newCommande) {
-		removeAllCommande();
-		for (java.util.Iterator iter = newCommande.iterator(); iter.hasNext();)
-			addCommande((Commande) iter.next());
-	}
-
-	public void addCommande(Commande newCommande) {
-		if (newCommande == null)
-			return;
-		if (this.commande == null)
-			this.commande = new java.util.HashSet();
-		if (!this.commande.contains(newCommande))
-			this.commande.add(newCommande);
-	}
-
-	public void removeCommande(Commande oldCommande) {
-		if (oldCommande == null)
-			return;
-		if (this.commande != null)
-			if (this.commande.contains(oldCommande))
-				this.commande.remove(oldCommande);
-	}
-
-	public void removeAllCommande() {
-		if (commande != null)
-			commande.clear();
-	}
 
 }

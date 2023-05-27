@@ -64,9 +64,11 @@ public class Produit {
 	@JoinColumn(name="idCategorie")
 	private Categorie categorie;
 	
-	@OneToMany(mappedBy="produit", fetch=FetchType.EAGER)
-	private List<Commande> commandes=new ArrayList<Commande>();
+//	@OneToMany(mappedBy="produit", fetch=FetchType.EAGER)
+//	private List<Commande> commandes=new ArrayList<Commande>();
 
+	@OneToMany(mappedBy="produit", fetch=FetchType.EAGER)
+	private List<LigneCommande> ligneCommandes=new ArrayList<LigneCommande>();
 
 
 }

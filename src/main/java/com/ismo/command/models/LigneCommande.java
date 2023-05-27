@@ -4,9 +4,13 @@ import java.util.*;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -21,7 +25,13 @@ public class LigneCommande {
 	private int qteCommandee;
 	@Column
 	private float remise;
-	@Column
-	public Produit produitB;
-
+	
+	@ManyToOne(fetch=FetchType.EAGER)
+	@JoinColumn(name="idProduit")
+	private Produit produit;
+	
+	@ManyToOne(fetch=FetchType.EAGER)
+	@JoinColumn(name="idCommande")
+	private Produit commande;
+	
 }
