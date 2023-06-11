@@ -18,12 +18,11 @@ public class DaoProduit implements IDao<Produit>{
 		Session s = HibernateUtils.getSessionfactory().getCurrentSession();
 		Transaction t = s.beginTransaction();
 				
-		List<Produit> cats = s.createQuery("from Produit").list();
+		List<Produit> prods = s.createQuery("from Produit").list();
 		
 		t.commit();
 		s.close();
 							
-		return cats;
+		return prods;
 	}
-
 }
