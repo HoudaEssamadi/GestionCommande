@@ -136,7 +136,7 @@ img {
 									id="navbarDropdown_3" role="button" data-toggle="dropdown"
 									aria-haspopup="true" aria-expanded="false"> pages </a>
 									<div class="dropdown-menu" aria-labelledby="navbarDropdown_2">
-										<a class="dropdown-item" href="login.html"> login</a> <a
+										<a class="dropdown-item" href="/GestionCmd/do/login"> login</a> <a
 											class="dropdown-item" href="tracking.html">tracking</a> <a
 											class="dropdown-item" href="checkout.html">product
 											checkout</a> <a class="dropdown-item" href="cart.html">shopping
@@ -154,13 +154,16 @@ img {
 
 								<li class="nav-item"><a class="nav-link"
 									href="contact.html">Contact</a></li>
+
+								<li class="nav-item"><a class="nav-link"
+									href="/GestionCmd/pages/login.jsp">Login</a></li>
 							</ul>
 						</div>
 						<div class="hearer_icon d-flex">
 							<a id="search_1" href="javascript:void(0)"><i
 								class="ti-search"></i></a> <a href=""><i class="ti-heart"></i></a>
 							<div class="dropdown cart">
-								<a class="dropdown-toggle" href="#" id="navbarDropdown3"
+								<a class="dropdowtgle" href="#" id="navbarDropdown3"
 									role="button" data-toggle="dropdown" aria-haspopup="true"
 									aria-expanded="false"> <i class="fas fa-cart-plus"></i>
 								</a>
@@ -176,7 +179,7 @@ img {
 				</div>
 			</div>
 		</div>
-		<div class="search_input" id="search_input_box">
+		<!-- <div class="search_input" id="search_input_box">
 			<div class="container ">
 				<form class="d-flex justify-content-between search-inner">
 					<input type="text" class="form-control" id="search_input"
@@ -185,7 +188,7 @@ img {
 					<span class="ti-close" id="close_search" title="Close Search"></span>
 				</form>
 			</div>
-		</div>
+		</div> -->
 	</header>
 	<!-- Header part end-->
 
@@ -196,8 +199,23 @@ img {
 				<div class="col-lg-12">
 					<div class="banner_slider owl-carousel">
 
-
-
+						<%-- <section class="slider">
+    <div class="slides">
+        <c:set var="images" value="${produits}" />
+								<c:forEach var="i" begin="0" end="${fn:length(images) - 1}"
+									varStatus="status">
+									<c:set var="randomIndex"
+										value="${fn:random() * (fn:length(images) - status.index)}" />
+									<c:set var="image" value="${images[randomIndex]}" />
+									<div class="slide">
+										<img src="${image}" alt="Image ${status.index + 1}">
+									</div>
+									<c:set var="images" value="${fn:remove(images, randomIndex)}" />
+								</c:forEach>
+							</div>
+</section>
+	
+ --%>
 						<%-- 	<div class="single_banner_slider">
 							<div class="row">
 								<div class="col-lg-5 col-md-8">
@@ -296,7 +314,7 @@ img {
 						<div class="single_feature_post_text">
 							<p>Premium Quality</p>
 							<h3>${produit.title}</h3>
-							<a href="#" class="feature_btn">EXPLORE NOW <i
+							<a href="#" class="feature_btn" href= "">EXPLORE NOW <i
 								class="fas fa-play"></i></a> <img src="${produit.image1}" alt="">
 						</div>
 					</div>
@@ -390,180 +408,19 @@ img {
 					<div class="product_list_slider owl-carousel">
 						<div class="single_product_list_slider">
 							<div class="row align-items-center justify-content-between">
-								<div class="col-lg-3 col-sm-6">
+								<div class="col-lg-3 col-sm-4">
 									<c:forEach var="produit" items="${requestScope.produits }">
 										<div class="single_product_item">
-											<img src="${produit.image1}" alt="">
+											<img src="${produit.image2}" alt="">
 											<div class="single_product_text">
-												<h4>Quartz Belt Watch</h4>
-												<h3>$150.00</h3>
-												<a href="#" class="add_cart">+ add to cart<i
-													class="ti-heart"></i></a>
+												<h4>${produit.title}</h4>
+												<h3>$${produit.price}</h3>
+												<a href="/GestionCmd/pages/singleProduct.jsp" class="add_cart">+ add to cart<i
+													class="ti-heart"></i>
+												</a>
 											</div>
 										</div>
 									</c:forEach>
-								</div>
-								<!--   <div class="col-lg-3 col-sm-6">
-                                    <div class="single_product_item">
-                                        <img src="img/product/product_2.png" alt="">
-                                        <div class="single_product_text">
-                                            <h4>Quartz Belt Watch</h4>
-                                            <h3>$150.00</h3>
-                                            <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-sm-6">
-                                    <div class="single_product_item">
-                                        <img src="img/product/product_3.png" alt="">
-                                        <div class="single_product_text">
-                                            <h4>Quartz Belt Watch</h4>
-                                            <h3>$150.00</h3>
-                                            <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-sm-6">
-                                    <div class="single_product_item">
-                                        <img src="img/product/product_4.png" alt="">
-                                        <div class="single_product_text">
-                                            <h4>Quartz Belt Watch</h4>
-                                            <h3>$150.00</h3>
-                                            <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-sm-6">
-                                    <div class="single_product_item">
-                                        <img src="img/product/product_5.png" alt="">
-                                        <div class="single_product_text">
-                                            <h4>Quartz Belt Watch</h4>
-                                            <h3>$150.00</h3>
-                                            <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-sm-6">
-                                    <div class="single_product_item">
-                                        <img src="img/product/product_6.png" alt="">
-                                        <div class="single_product_text">
-                                            <h4>Quartz Belt Watch</h4>
-                                            <h3>$150.00</h3>
-                                            <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-sm-6">
-                                    <div class="single_product_item">
-                                        <img src="img/product/product_7.png" alt="">
-                                        <div class="single_product_text">
-                                            <h4>Quartz Belt Watch</h4>
-                                            <h3>$150.00</h3>
-                                            <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-sm-6">
-                                    <div class="single_product_item">
-                                        <img src="img/product/product_8.png" alt="">
-                                        <div class="single_product_text">
-                                            <h4>Quartz Belt Watch</h4>
-                                            <h3>$150.00</h3>
-                                            <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
-                                        </div>
-                                    </div>
-                                </div> -->
-							</div>
-						</div>
-						<div class="single_product_list_slider">
-							<div class="row align-items-center justify-content-between">
-								<div class="col-lg-3 col-sm-6">
-									<div class="single_product_item">
-										<img src="img/product/product_1.png" alt="">
-										<div class="single_product_text">
-											<h4>Quartz Belt Watch</h4>
-											<h3>$150.00</h3>
-											<a href="#" class="add_cart">+ add to cart<i
-												class="ti-heart"></i></a>
-										</div>
-									</div>
-								</div>
-								<div class="col-lg-3 col-sm-6">
-									<div class="single_product_item">
-										<img src="img/product/product_2.png" alt="">
-										<div class="single_product_text">
-											<h4>Quartz Belt Watch</h4>
-											<h3>$150.00</h3>
-											<a href="#" class="add_cart">+ add to cart<i
-												class="ti-heart"></i></a>
-										</div>
-									</div>
-								</div>
-								<div class="col-lg-3 col-sm-6">
-									<div class="single_product_item">
-										<img src="img/product/product_3.png" alt="">
-										<div class="single_product_text">
-											<h4>Quartz Belt Watch</h4>
-											<h3>$150.00</h3>
-											<a href="#" class="add_cart">+ add to cart<i
-												class="ti-heart"></i></a>
-										</div>
-									</div>
-								</div>
-								<div class="col-lg-3 col-sm-6">
-									<div class="single_product_item">
-										<img src="img/product/product_4.png" alt="">
-										<div class="single_product_text">
-											<h4>Quartz Belt Watch</h4>
-											<h3>$150.00</h3>
-											<a href="#" class="add_cart">+ add to cart<i
-												class="ti-heart"></i></a>
-										</div>
-									</div>
-								</div>
-								<div class="col-lg-3 col-sm-6">
-									<div class="single_product_item">
-										<img src="img/product/product_5.png" alt="">
-										<div class="single_product_text">
-											<h4>Quartz Belt Watch</h4>
-											<h3>$150.00</h3>
-											<a href="#" class="add_cart">+ add to cart<i
-												class="ti-heart"></i></a>
-										</div>
-									</div>
-								</div>
-								<div class="col-lg-3 col-sm-6">
-									<div class="single_product_item">
-										<img src="img/product/product_6.png" alt="">
-										<div class="single_product_text">
-											<h4>Quartz Belt Watch</h4>
-											<h3>$150.00</h3>
-											<a href="#" class="add_cart">+ add to cart<i
-												class="ti-heart"></i></a>
-										</div>
-									</div>
-								</div>
-								<div class="col-lg-3 col-sm-6">
-									<div class="single_product_item">
-										<img src="img/product/product_7.png" alt="">
-										<div class="single_product_text">
-											<h4>Quartz Belt Watch</h4>
-											<h3>$150.00</h3>
-											<a href="#" class="add_cart">+ add to cart<i
-												class="ti-heart"></i></a>
-										</div>
-									</div>
-								</div>
-								<div class="col-lg-3 col-sm-6">
-									<div class="single_product_item">
-										<img src="img/product/product_8.png" alt="">
-										<div class="single_product_text">
-											<h4>Quartz Belt Watch</h4>
-											<h3>$150.00</h3>
-											<a href="#" class="add_cart">+ add to cart<i
-												class="ti-heart"></i></a>
-										</div>
-									</div>
 								</div>
 							</div>
 						</div>
@@ -631,40 +488,12 @@ img {
 							<div class="single_product_item">
 								<img src="${produit.image1}" alt="">
 								<div class="single_product_text">
-									<h4>Quartz Belt Watch</h4>
-									<h3>$150.00</h3>
+									<h4>${produit.title}</h4>
+									<h3>$${produit.price}</h3>
 								</div>
 							</div>
 						</c:forEach>
 					</div>
-					<!-- 	<div class="single_product_item">
-							<img src="img/product/product_2.png" alt="">
-							<div class="single_product_text">
-								<h4>Quartz Belt Watch</h4>
-								<h3>$150.00</h3>
-							</div>
-						</div>
-						<div class="single_product_item">
-							<img src="img/product/product_3.png" alt="">
-							<div class="single_product_text">
-								<h4>Quartz Belt Watch</h4>
-								<h3>$150.00</h3>
-							</div>
-						</div>
-						<div class="single_product_item">
-							<img src="img/product/product_4.png" alt="">
-							<div class="single_product_text">
-								<h4>Quartz Belt Watch</h4>
-								<h3>$150.00</h3>
-							</div>
-						</div>
-						<div class="single_product_item">
-							<img src="img/product/product_5.png" alt="">
-							<div class="single_product_text">
-								<h4>Quartz Belt Watch</h4>
-								<h3>$150.00</h3>
-							</div>
-						</div> -->
 				</div>
 			</div>
 		</div>
@@ -780,30 +609,30 @@ img {
 	<!--::footer_part end::-->
 
 	<!-- jquery plugins here-->
-	<script src="js/jquery-1.12.1.min.js"></script>
+	<script src="/GestionCmd/js/jquery-1.12.1.min.js"></script>
 	<!-- popper js -->
-	<script src="js/popper.min.js"></script>
+	<script src="/GestionCmd/js/popper.min.js"></script>
 	<!-- bootstrap js -->
-	<script src="js/bootstrap.min.js"></script>
+	<script src="/GestionCmd/js/bootstrap.min.js"></script>
 	<!-- easing js -->
-	<script src="js/jquery.magnific-popup.js"></script>
+	<script src="/GestionCmd/js/jquery.magnific-popup.js"></script>
 	<!-- swiper js -->
-	<script src="js/swiper.min.js"></script>
+	<script src="/GestionCmd/js/swiper.min.js"></script>
 	<!-- swiper js -->
-	<script src="js/masonry.pkgd.js"></script>
+	<script src="/GestionCmd/js/masonry.pkgd.js"></script>
 	<!-- particles js -->
-	<script src="js/owl.carousel.min.js"></script>
-	<script src="js/jquery.nice-select.min.js"></script>
+	<script src="/GestionCmd/js/owl.carousel.min.js"></script>
+	<script src="/GestionCmd/js/jquery.nice-select.min.js"></script>
 	<!-- slick js -->
-	<script src="js/slick.min.js"></script>
-	<script src="js/jquery.counterup.min.js"></script>
-	<script src="js/waypoints.min.js"></script>
-	<script src="js/contact.js"></script>
-	<script src="js/jquery.ajaxchimp.min.js"></script>
-	<script src="js/jquery.form.js"></script>
-	<script src="js/jquery.validate.min.js"></script>
-	<script src="js/mail-script.js"></script>
+	<script src="/GestionCmd/js/slick.min.js"></script>
+	<script src="/GestionCmd/js/jquery.counterup.min.js"></script>
+	<script src="/GestionCmd/js/waypoints.min.js"></script>
+	<script src="/GestionCmd/js/contact.js"></script>
+	<script src="/GestionCmd/js/jquery.ajaxchimp.min.js"></script>
+	<script src="/GestionCmd/js/jquery.form.js"></script>
+	<script src="/GestionCmd/js/jquery.validate.min.js"></script>
+	<script src="/GestionCmd/js/mail-script.js"></script>
 	<!-- custom js -->
-	<script src="js/custom.js"></script>
+	<script src="/GestionCmd/js/custom.js"></script>
 </body>
 </html>

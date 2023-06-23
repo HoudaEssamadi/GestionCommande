@@ -68,7 +68,7 @@ public class Produit {
 //	private List<Commande> commandes=new ArrayList<Commande>();
 
 	@OneToMany(mappedBy="produit", fetch=FetchType.EAGER)
-	private List<LigneCommande> ligneCommandes=new ArrayList<LigneCommande>();
+	private List<LigneCommande> ligneCommandes;
 
 
 }

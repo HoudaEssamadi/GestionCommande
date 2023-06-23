@@ -26,11 +26,11 @@ public class LigneCommande {
 	@Column
 	private float remise;
 	
-	@ManyToOne(fetch=FetchType.EAGER)
+	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="idProduit")
 	private Produit produit;
 	
-	@ManyToOne(fetch=FetchType.EAGER)
+	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="idCommande")
 	private Produit commande;
 	
